@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0.0</modelVersion>
+
+  <groupId>${groupId}.${rootArtifactId}</groupId>
+  <artifactId>${groupId}.${rootArtifactId}</artifactId>
+  <version>${version}-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>${rootArtifactId}</name>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven-bundle-plugin.version>2.4.0</maven-bundle-plugin.version>
+    <maven-scr-plugin.version>1.17.0</maven-scr-plugin.version>
+    <osgi.version>5.0.0</osgi.version>
+    <pluginversions.javaver>1.7</pluginversions.javaver>
+    <scr-version>1.9.6</scr-version>
+    <config-admin-version>1.8.0</config-admin-version>
+    <log-version>1.0.1</log-version>
+    <jersey-version>1.8</jersey-version>
+  </properties>
+
+  <modules>
+    <module>api</module>
+    <module>command</module>
+    <module>http</module>
+    <module>impl</module>
+  </modules>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.felix</groupId>
+      <artifactId>org.apache.felix.scr.annotations</artifactId>
+      <version>${scr-version}</version>
+      <scope>provided</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.apache.felix</groupId>
+      <artifactId>org.apache.felix.configadmin</artifactId>
+      <version>${config-admin-version}</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3</version>
+        <configuration>
+          <source>${pluginversions.javaver}</source>
+          <target>${pluginversions.javaver}</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

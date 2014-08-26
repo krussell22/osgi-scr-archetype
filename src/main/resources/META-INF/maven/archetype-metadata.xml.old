@@ -1,0 +1,100 @@
+<archetype-descriptor name="fileset" partial="false">
+  <id>service-project</id>
+  
+  <requiredProperties>
+    <!-- Lower-case representation of artifactId (ex: policystore) -->
+    <requiredProperty key="artifactLC">
+      <defaultValue>${artifactId}</defaultValue>
+    </requiredProperty>
+    <!-- Hyphen-separated word format of artifactId (ex: policy-store)-->
+    <requiredProperty key="artifactFormatted">
+      <defaultValue>${artifactLC}</defaultValue>
+    </requiredProperty>
+    <!-- Hyphen-separated word format of the artifact's system (ex: policy-system)-->
+    <requiredProperty key="artifactSystem">
+      <defaultValue>${artifactFormatted}</defaultValue>
+    </requiredProperty>
+    <!-- Follows Java variable name convention (ex: policyStore)-->
+    <requiredProperty key="artifactVarName">
+      <defaultValue>${artifactLC}</defaultValue>
+    </requiredProperty>
+  </requiredProperties>
+  
+  <modules>
+    <!-- Service Subproject Structure -->
+	<module name="__artifactId__Service" id="Service" dir="__rootArtifactId__Service">
+	  <fileSets>
+        <!-- Service Debian Packaging Directory -->
+        <fileSet filtered="true" packaged="false" encoding="UTF-8">
+          <directory>deb</directory>
+          <includes>
+            <include>**/*</include>
+          </includes>
+        </fileSet>
+          <!-- Service Source Directory -->
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+          <directory>src/main/java</directory>
+          <includes>
+            <include>__artifactLC__/service/__rootArtifactId__.java</include>
+            <include>__artifactLC__/service/__rootArtifactId__Service.java</include>
+          </includes>
+        </fileSet>
+          <!-- Service Test Directory -->
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+          <directory>src/test/java</directory>
+          <includes>
+            <include>__artifactLC__/service/Test__rootArtifactId__.java</include>
+          </includes>
+        </fileSet>
+        <!-- Service Resource Directory -->
+        <fileSet filtered="true" packaged="false" encoding="UTF-8">
+          <directory>src/main/resources</directory>
+          <includes>
+            <include>**/*</include>
+          </includes>
+        </fileSet>
+        <!-- Service Test Resource Directory -->
+        <fileSet filtered="true" packaged="false" encoding="UTF-8">
+          <directory>src/test/resources</directory>
+          <includes>
+            <include>**/*</include>
+          </includes>
+        </fileSet>
+	  </fileSets>
+	</module>
+	
+    <!-- Support Subproject Structure -->
+	<module name="__artifactId__Support" id="Support" dir="__rootArtifactId__Support">
+	  <fileSets>
+        <!-- Support Source Directory -->
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+          <directory>src/main/java</directory>
+          <includes>
+            <include>__artifactLC__/support/interfaces/I__rootArtifactId__.java</include>
+          </includes>
+        </fileSet>
+        <!-- Support Test Directory -->
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+          <directory>src/test/java</directory>
+          <includes>
+            <include>**/*.java</include>
+          </includes>
+        </fileSet>
+        <!-- Support Resource Directory -->
+        <fileSet filtered="true" packaged="false" encoding="UTF-8">
+          <directory>src/main/resources</directory>
+          <includes>
+            <include>**/*</include>
+          </includes>
+        </fileSet>
+        <!-- Support Test Resource Directory -->
+        <fileSet filtered="true" packaged="false" encoding="UTF-8">
+          <directory>src/test/resources</directory>
+          <includes>
+            <include>**/*</include>
+          </includes>
+        </fileSet>
+	  </fileSets>
+	</module>
+  </modules>
+</archetype-descriptor>
