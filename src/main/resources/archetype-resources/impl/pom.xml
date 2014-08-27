@@ -9,7 +9,6 @@
   </parent>
 
   <artifactId>${groupId}.${rootArtifactId}.impl</artifactId>
-  <packaging>bundle</packaging>
 
   <name>${rootArtifactId} Impl</name>
 

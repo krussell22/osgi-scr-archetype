@@ -9,7 +9,6 @@
   </parent>
 
   <artifactId>${groupId}.${rootArtifactId}.api</artifactId>
-  <packaging>bundle</packaging>
 
   <name>${rootArtifactId} API</name>
 

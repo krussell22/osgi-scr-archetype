@@ -9,7 +9,6 @@
   </parent>
 
   <artifactId>${groupId}.${rootArtifactId}.http</artifactId>
-  <packaging>bundle</packaging>
 
   <name>${rootArtifactId} HTTP</name>
 
