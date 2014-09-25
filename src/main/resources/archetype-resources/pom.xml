@@ -19,7 +19,7 @@
     <scr-version>1.9.6</scr-version>
     <config-admin-version>1.8.0</config-admin-version>
     <log-version>1.0.1</log-version>
-    <jersey-version>1.8</jersey-version>
+    <jersey-version>2.11</jersey-version>
   </properties>
 
   <modules>

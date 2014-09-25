@@ -24,7 +24,7 @@
       <version>${log-version}</version>
     </dependency>
     <dependency>
-      <groupId>com.sun.jersey</groupId>
+      <groupId>org.glassfish.jersey.core</groupId>
       <artifactId>jersey-server</artifactId>
       <version>${jersey-version}</version>
     </dependency>
