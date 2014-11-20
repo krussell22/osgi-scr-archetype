@@ -23,8 +23,9 @@
           <instructions>
             <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
             <Bundle-Version>${project.version}</Bundle-Version>
+            <Bundle-Category>${bundle.category}</Bundle-Category>
             <Export-Package>
-              ${project.artifactId},${project.artifactId}.dto
+              *
             </Export-Package>
             <Import-Package>
             </Import-Package>

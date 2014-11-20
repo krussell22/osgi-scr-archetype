@@ -44,6 +44,7 @@
           <instructions>
             <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
             <Bundle-Version>${project.version}</Bundle-Version>
+            <Bundle-Category>${bundle.category}</Bundle-Category>
             <Export-Package>
             </Export-Package>
             <Import-Package>

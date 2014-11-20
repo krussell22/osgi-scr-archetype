@@ -8,16 +8,11 @@
     <version>${version}-SNAPSHOT</version>
   </parent>
 
-  <artifactId>${groupId}.${rootArtifactId}.http</artifactId>
+  <artifactId>${groupId}.${rootArtifactId}.mega</artifactId>
 
-  <name>${rootArtifactId} HTTP</name>
+  <name>${rootArtifactId} Mega-bundle</name>
 
   <dependencies>
-    <dependency>
-      <groupId>${groupId}.${rootArtifactId}</groupId>
-      <artifactId>${groupId}.${rootArtifactId}.api</artifactId>
-      <version>${version}-SNAPSHOT</version>
-    </dependency>
     <dependency>
       <groupId>org.glassfish.jersey.core</groupId>
       <artifactId>jersey-server</artifactId>
@@ -26,7 +21,43 @@
   </dependencies>
 
   <build>
+    <!-- This makes it a mega-bundle, add and remove things as you need to -->
+    <resources>
+      <resource>
+	<directory>${project.basedir}/../api/src/main/java/</directory>
+      </resource>
+      <resource>
+	<directory>${project.basedir}/../command/src/main/java/</directory>
+      </resource>
+      <resource>
+	<directory>${project.basedir}/../http/src/main/java/</directory>
+      </resource>
+      <resource>
+	<directory>${project.basedir}/../impl/src/main/java/</directory>
+      </resource>
+    </resources>
     <plugins>
+      <plugin>
+	<groupId>org.codehaus.mojo</groupId>
+	<artifactId>build-helper-maven-plugin</artifactId>
+	<executions>
+          <execution>
+            <phase>generate-sources</phase>
+            <goals>
+	      <goal>add-source</goal>
+	    </goals>
+            <configuration>
+              <sources>
+                <source>${project.basedir}/../api/src/main/java/</source>
+                <source>${project.basedir}/../command/src/main/java/</source>
+                <source>${project.basedir}/../http/src/main/java/</source>
+                <source>${project.basedir}/../impl/src/main/java/</source>
+              </sources>
+            </configuration>
+          </execution>
+	</executions>
+      </plugin>
+      <!-- END Mega specific configuration -->
       <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-scr-plugin</artifactId>
@@ -51,6 +82,7 @@
             <Bundle-Version>${project.version}</Bundle-Version>
             <Bundle-Category>${bundle.category}</Bundle-Category>
             <Export-Package>
+	      ${groupId}.${rootArtifactId}.api.*
             </Export-Package>
             <Import-Package>
               *
