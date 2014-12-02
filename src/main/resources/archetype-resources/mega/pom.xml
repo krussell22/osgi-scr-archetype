@@ -24,16 +24,16 @@
     <!-- This makes it a mega-bundle, add and remove things as you need to -->
     <resources>
       <resource>
-	<directory>${project.basedir}/../api/src/main/java/</directory>
+	<directory>${project.basedir}/../api/src/main/resources/</directory>
       </resource>
       <resource>
-	<directory>${project.basedir}/../command/src/main/java/</directory>
+	<directory>${project.basedir}/../command/src/main/resources/</directory>
       </resource>
       <resource>
-	<directory>${project.basedir}/../http/src/main/java/</directory>
+	<directory>${project.basedir}/../http/src/main/resources/</directory>
       </resource>
       <resource>
-	<directory>${project.basedir}/../impl/src/main/java/</directory>
+	<directory>${project.basedir}/../impl/src/main/resources/</directory>
       </resource>
     </resources>
     <plugins>
