@@ -30,7 +30,8 @@
     <module>command</module>
     <module>http</module>
     <module>impl</module>
-    <module>mega</module>
+    <!-- mega is experimental, enable it if you want to try it -->
+    <!-- <module>mega</module> -->
   </modules>
 
   <dependencies>

@@ -1,89 +1,97 @@
 <archetype-descriptor name="fileset" partial="false">
   <id>osgi-scr</id>
+  <fileSets>
+    <fileSet>
+      <directory></directory>
+      <includes>
+        <include>.gitignore</include>
+      </includes>
+    </fileSet>
+  </fileSets>
   <modules>
     <module name="api" id="api" dir="api">
       <fileSets>
-	<fileSet filtered="true" packaged="true" encoding="UTF-8">
-	  <directory>src/main/java</directory>
-	  <includes>
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+          <directory>src/main/java</directory>
+          <includes>
             <include>**/*.java</include>
-	  </includes>
-	</fileSet>
-	<fileSet filtered="true" encoding="UTF-8">
-	  <directory>src/main/resources</directory>
-	  <includes>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>src/main/resources</directory>
+          <includes>
             <include>**/*.xml</include>
             <include>**/*.txt</include>
-	  </includes>
-	</fileSet>
+          </includes>
+        </fileSet>
       </fileSets>
     </module>
     <module name="command" id="command" dir="command">
       <fileSets>
-	<fileSet filtered="true" packaged="true" encoding="UTF-8">
-	  <directory>src/main/java</directory>
-	  <includes>
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+          <directory>src/main/java</directory>
+          <includes>
             <include>**/*.java</include>
-	  </includes>
-	</fileSet>
-	<fileSet filtered="true" encoding="UTF-8">
-	  <directory>src/main/resources</directory>
-	  <includes>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>src/main/resources</directory>
+          <includes>
             <include>**/*.xml</include>
             <include>**/*.txt</include>
-	  </includes>
-	</fileSet>
+          </includes>
+        </fileSet>
       </fileSets>
     </module>
     <module name="http" id="http" dir="http">
       <fileSets>
-	<fileSet filtered="true" packaged="true" encoding="UTF-8">
-	  <directory>src/main/java</directory>
-	  <includes>
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+          <directory>src/main/java</directory>
+          <includes>
             <include>**/*.java</include>
-	  </includes>
-	</fileSet>
-	<fileSet filtered="true" encoding="UTF-8">
-	  <directory>src/main/resources</directory>
-	  <includes>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>src/main/resources</directory>
+          <includes>
             <include>**/*.xml</include>
             <include>**/*.txt</include>
-	  </includes>
-	</fileSet>
+          </includes>
+        </fileSet>
       </fileSets>
     </module>
     <module name="impl" id="impl" dir="impl">
       <fileSets>
-	<fileSet filtered="true" packaged="true" encoding="UTF-8">
-	  <directory>src/main/java</directory>
-	  <includes>
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+          <directory>src/main/java</directory>
+          <includes>
             <include>**/*.java</include>
-	  </includes>
-	</fileSet>
-	<fileSet filtered="true" encoding="UTF-8">
-	  <directory>src/main/resources</directory>
-	  <includes>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>src/main/resources</directory>
+          <includes>
             <include>**/*.xml</include>
             <include>**/*.txt</include>
-	  </includes>
-	</fileSet>
+          </includes>
+        </fileSet>
       </fileSets>
     </module>
     <module name="mega" id="mega" dir="mega">
       <fileSets>
-	<fileSet filtered="true" packaged="true" encoding="UTF-8">
-	  <directory>src/main/java</directory>
-	  <includes>
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+          <directory>src/main/java</directory>
+          <includes>
             <include>**/*.java</include>
-	  </includes>
-	</fileSet>
-	<fileSet filtered="true" encoding="UTF-8">
-	  <directory>src/main/resources</directory>
-	  <includes>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>src/main/resources</directory>
+          <includes>
             <include>**/*.xml</include>
             <include>**/*.txt</include>
-	  </includes>
-	</fileSet>
+          </includes>
+        </fileSet>
       </fileSets>
     </module>
   </modules>
