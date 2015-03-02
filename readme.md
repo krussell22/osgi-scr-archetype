@@ -16,7 +16,7 @@ cd scr
 mvn install
 mkdir -p /tmp/load
 find . -name *.jar -exec cp {} /tmp/load \;
-docker run -t -i -p 8080:8080 -v /tmp/load:/opt/felix/current/load sdempsay/docker-felix-jaxrs-developer
+docker run -t -i -p 8080:8080 -v /tmp/load:/opt/felix/current/load pavlovmedia/pavlov-felix-container
 ```
 
 Now from inside the felix shell you can run sayhi, or you can hit <a HREF='http://localhost:8080/services/hello/world'>http://localhost:8080/services/hello/world</a>
