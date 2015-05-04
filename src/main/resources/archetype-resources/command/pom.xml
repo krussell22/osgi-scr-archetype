@@ -20,15 +20,6 @@
       <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-scr-plugin</artifactId>
-        <version>${maven-scr-plugin.version}</version>
-        <executions>
-          <execution>
-            <id>generate-scr-scrdescriptor</id>
-            <goals>
-              <goal>scr</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
       <plugin>
         <groupId>org.apache.felix</groupId>
@@ -38,15 +29,13 @@
         <configuration>
           <instructions>
             <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-            <Bundle-Version>${project.version}</Bundle-Version>
-            <Bundle-Category>${bundle.category}</Bundle-Category>
             <Export-Package>
             </Export-Package>
             <Import-Package>
               *
             </Import-Package>
             <Service-Component>
-              OSGI-INF/*
+	      OSGI-INF/*
             </Service-Component>
           </instructions>
         </configuration>
