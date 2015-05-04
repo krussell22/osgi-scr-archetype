@@ -17,6 +17,8 @@
     <maven-bundle-plugin.version>2.4.0</maven-bundle-plugin.version>
     <maven-scr-plugin.version>1.20.0</maven-scr-plugin.version>
     <pluginversions.javaver>1.8</pluginversions.javaver>
+    <maven-jar-plugin.version>2.5</maven-jar-plugin.version>
+
     <!-- OSGi support versions -->
     <scr.version>1.9.6</scr.version>
     <config-admin.version>1.8.0</config-admin.version>
@@ -57,38 +59,61 @@
   </dependencies>
 
   <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.3</version>
-        <configuration>
-          <source>${pluginversions.javaver}</source>
-          <target>${pluginversions.javaver}</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <artifactId>maven-jar-plugin</artifactId>
-        <configuration>
-          <archive>
-            <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
-          </archive>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.felix</groupId>
-        <artifactId>maven-bundle-plugin</artifactId>
-        <version>${maven-bundle-plugin.version}</version>
-        <executions>
-          <execution>
-            <id>bundle-manifest</id>
-            <phase>process-classes</phase>
-            <goals>
-              <goal>manifest</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>2.3</version>
+          <configuration>
+            <source>${pluginversions.javaver}</source>
+            <target>${pluginversions.javaver}</target>
+          </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+	  <version>${maven-jar-plugin.version}</version>
+          <configuration>
+            <archive>
+              <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+            </archive>
+          </configuration>
+        </plugin>
+	<plugin>
+          <groupId>org.apache.felix</groupId>
+          <artifactId>maven-scr-plugin</artifactId>
+          <version>${maven-scr-plugin.version}</version>
+          <executions>
+            <execution>
+              <id>generate-scr-scrdescriptor</id>
+              <goals>
+		<goal>scr</goal>
+              </goals>
+            </execution>
+          </executions>
+	</plugin>
+	<plugin>
+          <groupId>org.apache.felix</groupId>
+          <artifactId>maven-bundle-plugin</artifactId>
+          <version>${maven-bundle-plugin.version}</version>
+          <executions>
+            <execution>
+              <id>bundle-manifest</id>
+              <phase>process-classes</phase>
+              <goals>
+                <goal>manifest</goal>
+              </goals>
+            </execution>
+          </executions>
+          <extensions>true</extensions>
+          <configuration>
+            <instructions>
+              <Bundle-Version>${project.version}</Bundle-Version>
+              <Bundle-Category>${bundle.category}</Bundle-Category>
+            </instructions>
+          </configuration>
+	</plugin>
+      </plugins>
+    </pluginManagement>
   </build>
 </project>
