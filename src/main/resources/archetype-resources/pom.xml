@@ -71,11 +71,6 @@
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
 	  <version>${maven-jar-plugin.version}</version>
-          <configuration>
-            <archive>
-              <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
-            </archive>
-          </configuration>
         </plugin>
 	<plugin>
           <groupId>org.apache.felix</groupId>
