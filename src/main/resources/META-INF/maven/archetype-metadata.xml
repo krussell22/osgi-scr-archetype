@@ -8,22 +8,9 @@
       </includes>
     </fileSet>
     <fileSet filtered="true" encoding="UTF-8">
-      <directory>mega</directory>
-      <includes>
-        <include>pom.xml</include>
-      </includes>
-    </fileSet>
-    <fileSet filtered="true" encoding="UTF-8">
       <directory>mega/src/main/java</directory>
       <includes>
         <include>**/*.java</include>
-      </includes>
-    </fileSet>
-    <fileSet filtered="true" encoding="UTF-8">
-      <directory>mega/src/main/resources</directory>
-      <includes>
-        <include>**/*.xml</include>
-        <include>**/*.txt</include>
       </includes>
     </fileSet>
   </fileSets>
@@ -96,24 +83,5 @@
         </fileSet>
       </fileSets>
     </module>
-    <!--
-    <module name="mega" id="mega" dir="mega">
-      <fileSets>
-        <fileSet filtered="true" packaged="true" encoding="UTF-8">
-          <directory>src/main/java</directory>
-          <includes>
-            <include>**/*.java</include>
-          </includes>
-        </fileSet>
-        <fileSet filtered="true" encoding="UTF-8">
-          <directory>src/main/resources</directory>
-          <includes>
-            <include>**/*.xml</include>
-            <include>**/*.txt</include>
-          </includes>
-        </fileSet>
-      </fileSets>
-    </module>
-    -->
   </modules>
 </archetype-descriptor>
