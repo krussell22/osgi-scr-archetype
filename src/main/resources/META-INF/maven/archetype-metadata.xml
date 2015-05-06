@@ -8,9 +8,10 @@
       </includes>
     </fileSet>
     <fileSet filtered="true" encoding="UTF-8">
-      <directory>mega/src/main/java</directory>
+      <directory>containers</directory>
       <includes>
-        <include>**/*.java</include>
+        <include>**/pom.xml</include>
+        <include>**/Dockerfile</include>
       </includes>
     </fileSet>
   </fileSets>

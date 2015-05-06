@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <artifactId>${groupId}.${rootArtifactId}.containers</artifactId>
+    <groupId>${groupId}.${rootArtifactId}</groupId>
+    <version>${version}-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>${groupId}.${rootArtifactId}.containers.final</artifactId>
+  <packaging>pom</packaging>
+
+  <name>${rootArtifactId} Final Docker Instance</name>
+
+  <!-- This is where project dependencies go (i.e. things build by this project) -->
+
+  <dependencies>
+    <dependency>
+      <groupId>${groupId}.${rootArtifactId}</groupId>
+      <artifactId>${groupId}.${rootArtifactId}.containers.base</artifactId>
+      <version>${project.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>${groupId}.${rootArtifactId}</groupId>
+      <artifactId>${groupId}.${rootArtifactId}.api</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>${groupId}.${rootArtifactId}</groupId>
+      <artifactId>${groupId}.${rootArtifactId}.command</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>${groupId}.${rootArtifactId}</groupId>
+      <artifactId>${groupId}.${rootArtifactId}.http</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>${groupId}.${rootArtifactId}</groupId>
+      <artifactId>${groupId}.${rootArtifactId}.impl</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- The job of this plugin is to stage things for docker to copy, it works using the
+           dependencies inherited from the parent poms, and the master pom
+      -->
+      <plugin>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>compile</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.directory}/lib</outputDirectory>
+              <excludeTransitive>true</excludeTransitive>
+              <excludeScope>provided</excludeScope>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- This plugin builds the final docker image -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.1</version>
+        <configuration>
+          <executable>docker</executable>
+          <workingDirectory>${basedir}</workingDirectory>
+        </configuration>
+        <executions>
+          <execution>
+            <configuration>
+              <arguments>
+                <argument>build</argument>
+                <argument>-t</argument>
+                <argument>${container.name}_final</argument>
+                <argument>.</argument>
+              </arguments>
+            </configuration>
+            <id>Build image</id>
+            <phase>package</phase>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+          </execution>
+          <!-- This execution tags the release for a repo, only useful in ci -->
+          <execution>
+            <configuration>
+              <arguments>
+                <argument>tag</argument>
+                <argument>${container.name}_final</argument>
+                <argument>${docker.repo}/${container.name}:${project.version}</argument>
+              </arguments>
+            </configuration>
+            <id>Tag image</id>
+            <phase>install</phase>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+          </execution>
+	  <!-- This execution pushes the tagged release to a repo, only useful in ci -->
+          <execution>
+            <configuration>
+              <arguments>
+                <argument>push</argument>
+                <argument>${docker.repo}/${container.name}:${project.version}</argument>
+              </arguments>
+            </configuration>
+            <id>Deploy image</id>
+            <phase>install</phase>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
