@@ -23,16 +23,16 @@
         <extensions>true</extensions>
         <configuration>
           <instructions>
+            <Bundle-Name>Pavlov ${rootArtifactId} API</Bundle-Name>
             <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-            <Bundle-Version>${project.version}</Bundle-Version>
-            <Bundle-Category>${bundle.category}</Bundle-Category>
-            <Export-Package>
-              *
-            </Export-Package>
-            <Import-Package>
-            </Import-Package>
+            <Export-Package>*</Export-Package>
+            <Import-Package>*</Import-Package>
           </instructions>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
       </plugin>
     </plugins>
   </build>

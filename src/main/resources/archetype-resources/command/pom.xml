@@ -11,7 +11,6 @@
     <dependency>
       <groupId>${groupId}.${rootArtifactId}</groupId>
       <artifactId>${groupId}.${rootArtifactId}.api</artifactId>
-      <version>${project.version}</version>
     </dependency>
   </dependencies>
 
@@ -32,21 +31,19 @@
       <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
-        <version>${maven-bundle-plugin.version}</version>
         <extensions>true</extensions>
         <configuration>
           <instructions>
+          <Bundle-Name>Pavlov ${rootArtifactId} gogo commands</Bundle-Name>
             <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-            <Export-Package>
-            </Export-Package>
-            <Import-Package>
-              *
-            </Import-Package>
-            <Service-Component>
-              OSGI-INF/*
-            </Service-Component>
+            <Export-Package></Export-Package>
+            <Import-Package>*</Import-Package>
           </instructions>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
       </plugin>
     </plugins>
   </build>
