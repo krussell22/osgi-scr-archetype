@@ -11,7 +11,23 @@
     <dependency>
       <groupId>${groupId}.${rootArtifactId}</groupId>
       <artifactId>${groupId}.${rootArtifactId}.api</artifactId>
-      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.glassfish.jersey.core</groupId>
+      <artifactId>jersey-server</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jmock</groupId>
+      <artifactId>jmock</artifactId>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 
@@ -34,17 +50,16 @@
         <artifactId>maven-bundle-plugin</artifactId>
         <configuration>
           <instructions>
+            <Bundle-Name>Pavlov ${rootArtifactId} Implementation</Bundle-Name>
             <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-            <Export-Package>
-            </Export-Package>
-            <Import-Package>
-              *
-            </Import-Package>
-            <Service-Component>
-              OSGI-INF/*
-            </Service-Component>
+            <Export-Package></Export-Package>
+            <Import-Package>*</Import-Package>
           </instructions>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
       </plugin>
     </plugins>
   </build>

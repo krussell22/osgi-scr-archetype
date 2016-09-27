@@ -1,0 +1,10 @@
+repos add file:///tmp/obr/repository.xml
+
+obr:deploy -s -ro com.pavlovmedia.osgi.utilities.gsonprovider
+obr:deploy -s -ro com.pavlovmedia.osgi.utilities.gsonjaxprovider
+obr:deploy -s -ro dhc.osgi.servlets.impl
+obr:deploy -s -ro dhc.osgi.servlets.cors
+obr:deploy -s -ro dhc.osgi.servlets.error
+obr:deploy -s -ro dhc.osgi.stockyard.iron.impl
+obr:deploy -s -ro ${groupId}.${rootArtifactId}.impl
+obr:deploy -s -ro ${groupId}.${rootArtifactId}.command

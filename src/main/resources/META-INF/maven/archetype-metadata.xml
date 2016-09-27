@@ -7,13 +7,6 @@
         <include>.gitignore</include>
       </includes>
     </fileSet>
-    <fileSet filtered="true" encoding="UTF-8">
-      <directory>containers</directory>
-      <includes>
-        <include>**/pom.xml</include>
-        <include>**/Dockerfile</include>
-      </includes>
-    </fileSet>
   </fileSets>
   <modules>
     <module name="api" id="api" dir="api">
@@ -50,12 +43,19 @@
         </fileSet>
       </fileSets>
     </module>
-    <module name="http" id="http" dir="http">
+    <module name="impl" id="impl" dir="impl">
       <fileSets>
         <fileSet filtered="true" packaged="true" encoding="UTF-8">
           <directory>src/main/java</directory>
           <includes>
             <include>**/*.java</include>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+          <directory>src/test/java</directory>
+          <includes>
+            <include>**/*.java</include>
+            <include>**/*.txt</include>
           </includes>
         </fileSet>
         <fileSet filtered="true" encoding="UTF-8">
@@ -67,19 +67,13 @@
         </fileSet>
       </fileSets>
     </module>
-    <module name="impl" id="impl" dir="impl">
+    <module name="docker" id="docker" dir="docker">
       <fileSets>
-        <fileSet filtered="true" packaged="true" encoding="UTF-8">
-          <directory>src/main/java</directory>
-          <includes>
-            <include>**/*.java</include>
-          </includes>
-        </fileSet>
         <fileSet filtered="true" encoding="UTF-8">
           <directory>src/main/resources</directory>
           <includes>
-            <include>**/*.xml</include>
-            <include>**/*.txt</include>
+            <include>**/Dockerfile</include>
+            <include>**/install.gogo</include>
           </includes>
         </fileSet>
       </fileSets>
